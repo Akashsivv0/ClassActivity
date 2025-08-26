@@ -81,8 +81,43 @@ Make sure your commit message is clear. Example: “Added my observation — Joh
 
 Add your observation at the bottom to avoid conflicts.
 
+
+
+code:
+
+
+
 Optionally, upload your Kaggle notebook (.ipynb) and include a link in your PR.
 
 Goal
 
 By the end of the session, the repo will contain everyone’s observations from the Iris dataset. This activity shows how data exploration on Kaggle and collaboration on GitHub work together.
+
+
+code
+# 1. Load the dataset
+import seaborn as sns
+df = sns.load_dataset("iris")
+
+# 2. First few rows
+print(df.head())
+
+# 3. Dataset shape (rows, columns)
+print(df.shape)
+
+# 4. Column info
+print(df.info())
+
+# 5. Summary statistics
+print(df.describe())
+
+# 6. Unique species and counts
+print(df['species'].unique())
+print(df['species'].value_counts())
+
+# 7. Missing values check
+print(df.isnull().sum())
+
+# 8. Average measurements by species
+print(df.groupby('species').mean())
+
