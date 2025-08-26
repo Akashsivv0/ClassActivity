@@ -121,3 +121,29 @@ print(df.isnull().sum())
 # 8. Average measurements by species
 print(df.groupby('species').mean())
 
+alternate code (if first one doesnt work)
+# offline-safe way to load iris dataset
+from sklearn.datasets import load_iris
+import pandas as pd
+
+# load iris dataset
+data = load_iris(as_frame=True)
+df = data.frame
+
+# rename target column to species
+df.rename(columns={'target': 'species'}, inplace=True)
+df['species'] = df['species'].map({0:'setosa', 1:'versicolor', 2:'virginica'})
+
+# preview the dataframe
+print(df.head())
+
+# examples of exploration
+print(df.shape)
+print(df.info())
+print(df.describe())
+print(df['species'].value_counts())
+print(df.isnull().sum())
+print(df.groupby('species').mean())
+
+
+
